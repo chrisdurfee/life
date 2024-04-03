@@ -1,0 +1,2 @@
+# life
+example base website
