@@ -8,7 +8,7 @@ import { Links } from './links.js';
  *
  * @returns {object}
  */
-const Logo = () => A({ class: 'logo', href: '/life/'}, [
+const Logo = () => A({ class: 'logo', href: '/'}, [
 	Img({
 		src: 'images/life-logo.svg'
 	})

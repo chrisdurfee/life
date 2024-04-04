@@ -7,7 +7,7 @@ export const Video = Atom((props, children) =>
 	return {
 		tag: 'video',
 		class: props.class,
-		innerHTML: '<source src="' + props.src + '"></source>',
+		html: '<source src="' + props.src + '"></source>',
 		autoplay: true,
 		muted: true,
 		loop: true
@@ -18,7 +18,7 @@ export const MainSection = Atom((props, children) =>
 {
 	return {
 		tag: 'section',
-		class: 'main-panel ' + (props.className || ''),
+		class: 'main-panel ' + (props.class || ''),
 		children
 	};
 });

@@ -1,4 +1,4 @@
-import { Html, base } from '@base-framework/base';
+import { Arrays, base, Dom, Html } from '@base-framework/base';
 
 export class AutoScroller extends Html
 {
@@ -129,7 +129,7 @@ export class AutoScroller extends Html
 
 	getScrollMode()
 	{
-		let size = base.getWindowSize();
+		let size = Dom.getWindowSize();
 		if(size.width <= this.mobileSize)
 		{
 			/* we need to check if the system needs to
@@ -155,7 +155,7 @@ export class AutoScroller extends Html
 	/* this will check to enable mobile or pc mode */
 	setScrollModeBySize()
 	{
-		let size = base.getWindowSize();
+		let size = Dom.getWindowSize();
 		let last = this.lastSelectedOption;
 
 		/* we want to change the settings if the window size is
@@ -219,7 +219,7 @@ export class AutoScroller extends Html
 
 		if(this.container)
 		{
-			let container = document.getElementById(this.container);
+			let container = this.container;
 			if(container.hasChildNodes())
 			{
 				let number = container.childNodes.length;
@@ -267,7 +267,7 @@ export class AutoScroller extends Html
 
 	setupBreadCrumbContainer()
 	{
-		let numberContainer = this.create('div', {
+		let numberContainer = Html.create('div', {
 			id: this.id + '_crumb_container',
 			className: 'crumb-container'
 		}, this.container);
@@ -279,7 +279,7 @@ export class AutoScroller extends Html
 		let optionClass = this.getCrumbClass(tmpOption);
 
 		let self = this;
-		let option = this.create('div', {
+		let option = Html.create('div', {
 			id: tmpOption.crumbId,
 			className: optionClass,
 			click(){self.selectOption(tmpOption);}
@@ -287,7 +287,7 @@ export class AutoScroller extends Html
 
 		option = document.getElementById(option);
 
-		base.data(option, 'data-id', tmpOption.label);
+		Dom.data(option, 'data-id', tmpOption.label);
 	}
 
 	getCrumbClass(tmpOption)
@@ -369,13 +369,13 @@ export class AutoScroller extends Html
 	/* this will add abutton to show users to scroll */
 	setupScrollPointer()
 	{
-		let button = this.create('div', {
+		let button = Html.create('div', {
 			id: this.id + '_scroll_pointer',
 			className: 'scroll_pointer_button',
 			click: this.selectNextOption.bind(this)
 		}, this.container);
 
-		let pointer = this.create('div', {
+		let pointer = Html.create('div', {
 			className: 'scroll_pointer'
 		}, button);
 	}
@@ -421,9 +421,9 @@ export class AutoScroller extends Html
 	{
 		/* we needto get the panel number to get the
 		selecting animation class */
-		let panelNumber = base.inArray(this.optionsArray, tmpOption),
+		let panelNumber = Arrays.inArray(this.optionsArray, tmpOption),
 		lastOption = this.lastSelectedOption,
-		lastPanelNumber = (typeof lastOption !== 'undefined')? base.inArray(this.optionsArray, lastOption): 0;
+		lastPanelNumber = (typeof lastOption !== 'undefined')? Arrays.inArray(this.optionsArray, lastOption): 0;
 		let animations = this.getPanelClass(lastPanelNumber, panelNumber);
 
 		let options = this.optionsArray,
@@ -443,9 +443,9 @@ export class AutoScroller extends Html
 				panel.style.display = 'block';
 				panel.style.zIndex = '5';
 
-				base.removeClass(panel, 'animate');
+				Dom.removeClass(panel, 'animate');
 				//panel.offsetWidth = panel.offsetWidth;
-				base.addClass(panel, 'animate');
+				Dom.addClass(panel, 'animate');
 
 				let animationClass = animations.selecting;
 
@@ -487,7 +487,7 @@ export class AutoScroller extends Html
 		this.showAllPanels();
 
 		let panel = document.getElementById(tmpOption.panelId);
-		let position = base.getPosition(panel);
+		let position = Dom.getPosition(panel);
 
 		window.scrollTo(0, position.y);
 
@@ -512,7 +512,7 @@ export class AutoScroller extends Html
 	{
 		let logo = document.querySelector('.main_logo_top');
 		let landingHeader = document.getElementById('header_container');
-		let scrollTop = base.getScrollTop();
+		let scrollTop = Dom.getScrollTop();
 
 		let collapseClass = 'header_collapse';
 
@@ -539,8 +539,8 @@ export class AutoScroller extends Html
 			panelId = tmpOption.panelId,
 			panel = document.getElementById(panelId);
 
-			let position = base.getPosition(panel),
-			size = base.getSize(panel),
+			let position = Dom.getPosition(panel),
+			size = Dom.getSize(panel),
 			bottom = position.y + size.height;
 
 			if(scrollTop >= position.y && scrollTop < bottom)
@@ -695,7 +695,7 @@ export class AutoScroller extends Html
 		this.checkToAddScrollPointer(tmpOption.optionNumber);
 		this.checkConversionNumber(tmpOption.optionNumber);
 
-		base.addClass(object, 'active');
+		Dom.addClass(object, 'active');
 		this.unselectOption(tmpOption);
 
 		/* if the page is scrolling we dont want to
@@ -822,7 +822,7 @@ export class AutoScroller extends Html
 					option.selected = 'no';
 
 					let object = document.getElementById(option.panelId);
-					base.removeClass(object, 'active');
+					Dom.removeClass(object, 'active');
 				}
 			}
 		}

@@ -1,3 +1,4 @@
+import { Main } from '@base-framework/atoms';
 import { Component } from '@base-framework/base';
 
 /**
@@ -9,6 +10,11 @@ import { Component } from '@base-framework/base';
  */
 export class Page extends Component
 {
+	render()
+	{
+		return Main(this.class, this.children);
+	}
+
 	/**
 	 * This will be called every time the route
 	 * is activated.
