@@ -1,4 +1,5 @@
 import { Arrays, base, Dom, Html } from '@base-framework/base';
+import { animate } from './animate.js';
 
 export class AutoScroller extends Html
 {
@@ -454,7 +455,7 @@ export class AutoScroller extends Html
 				load in without sliding in. */
 				if(lastOption && animationClass != '')
 				{
-					base.animate._in(panel,animationClass,800);
+					animate.show(panel,animationClass,800);
 				}
 			}
 			else
@@ -468,7 +469,7 @@ export class AutoScroller extends Html
 					let animationClass = animations.removing;
 					if(animationClass != '')
 					{
-						base.animate.out(panel,animationClass,1000);
+						animate.hide(panel,animationClass,1000);
 					}
 				}
 				else
