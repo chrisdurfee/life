@@ -2,7 +2,7 @@ import { A, Br, Button, H1, H2, Header, P, Span } from '@base-framework/atoms';
 import { Atom } from '@base-framework/base';
 export { A, Br, Button, H1, H2, Header, P, Span };
 
-export const Video = Atom((props, children) =>
+export const Video = Atom((props) =>
 {
 	return {
 		tag: 'video',
