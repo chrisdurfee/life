@@ -1,4 +1,4 @@
-import { Header } from '@base-framework/atoms';
+import { Div } from '@base-framework/atoms';
 import { Atom, Component } from '@base-framework/base';
 import { HeaderPanel } from './header-panel.js';
 import { Routes } from './routes.js';
@@ -53,7 +53,7 @@ export class AppShell extends Component
 	render()
 	{
 		return AppContainer([
-			Header({ class: 'header-container' }, [
+			Div({ class: 'header-container' }, [
 				new HeaderPanel({ cache: 'header' })
 			]),
 			ActivePanelContainer({

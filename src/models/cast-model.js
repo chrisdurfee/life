@@ -1,13 +1,20 @@
+import { MainModel } from './main-model.js';
 
-"use strict"; 
-
-var CastModel = MainModel.extend(
+/**
+ * CastModel
+ *
+ * This will create the cast model.
+ *
+ * @class
+ * @extends MainModel
+ */
+export const CastModel = MainModel.extend(
 {
-	defaults: 
+	defaults:
 	{
-		lastName: '', 
-		firstName: '', 
-		text: '', 
-		className: ''
+		lastName: '',
+		firstName: '',
+		text: '',
+		class: ''
 	}
-}); 
+});

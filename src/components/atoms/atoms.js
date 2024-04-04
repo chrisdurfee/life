@@ -6,6 +6,7 @@ export const Video = Atom((props, children) =>
 {
 	return {
 		tag: 'video',
+		class: props.class,
 		innerHTML: '<source src="' + props.src + '"></source>',
 		autoplay: true,
 		muted: true,
