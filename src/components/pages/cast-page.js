@@ -9,7 +9,7 @@ import { ScrollPage } from "./scroll-page.js";
  * @returns {object}
  */
 export const Actor = (props) => (
-	Div({ class: `cast-container ${props.class}` }, [
+	Div({ id: props.firstName, class: `cast-container ${props.class}` }, [
 		Article({ class: 'cast-bio-container' }, [
 			H1([
 				Span(props.firstName),
