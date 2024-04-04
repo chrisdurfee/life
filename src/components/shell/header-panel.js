@@ -30,8 +30,7 @@ export class HeaderPanel extends Component
 				Logo()
 			]),
 			Div({ class: 'nav-container' }, [
-				Navigation(
-				{
+				Navigation({
 					cache: 'nav',
 					options: Links()
 				})
