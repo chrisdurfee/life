@@ -63,9 +63,4 @@ export class AppShell extends Component
 			})
 		]);
 	}
-
-	getBodyPanel()
-	{
-		return this.mainBody;
-	}
 }

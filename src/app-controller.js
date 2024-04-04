@@ -67,14 +67,4 @@ export class AppController
 		const main = this.appShell = new AppShell();
 		Builder.render(main, document.body);
 	}
-
-	/**
-	 * This will get the main body element.
-	 *
-	 * @return {object}
-	 */
-	getMainBody()
-	{
-		return this.appShell.getBodyPanel();
-	}
 }

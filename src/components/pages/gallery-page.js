@@ -14,6 +14,49 @@ const GalleryImage = (props) => ({
 });
 
 /**
+ * @type {array} GalleryImages
+ */
+const GalleryImages = [
+	{
+		id: 'first',
+		class: 'first',
+		dataId: 'Ryan Reynolds'
+	},
+	{
+		id: 'second',
+		class: 'second'
+	},
+	{
+		id: 'third',
+		class: 'third'
+	},
+	{
+		id: 'fourth',
+		class: 'fourth'
+	},
+	{
+		id: 'fifth',
+		class: 'fifth'
+	},
+	{
+		id: 'sixth',
+		class: 'sixth'
+	},
+	{
+		id: 'seventh',
+		class: 'seventh'
+	},
+	{
+		id: 'eighth',
+		class: 'eighth'
+	},
+	{
+		id: 'ninth',
+		class: 'ninth'
+	}
+];
+
+/**
  * GalleryPanel
  *
  * This will create the gallery panel.
@@ -24,26 +67,6 @@ export class GalleryPage extends ScrollPage
 {
 	render()
 	{
-		return MainSection({ class: 'gallery-panel' }, [
-			this.add('first', 'first', 'Ryan Reynolds'),
-			this.add('second', 'second'),
-			this.add('third', 'third'),
-			this.add('fourth', 'fourth'),
-			this.add('fifth', 'fifth'),
-			this.add('sixth', 'sixth'),
-			this.add('seventh', 'seventh'),
-			this.add('eighth', 'eighth'),
-			this.add('ninth', 'ninth')
-		]);
-	}
-
-	add(id, className, dataId)
-	{
-		return GalleryImage(
-		{
-			id: this.getId(id),
-			class: className,
-			'data-id': dataId
-		});
+		return MainSection({ class: 'gallery-panel', map: [ GalleryImages, GalleryImage] });
 	}
 }

@@ -38,6 +38,12 @@ export class HeaderPanel extends Component
 		]);
 	}
 
+	/**
+	 * This will setup the states. We are setting a target id
+	 * to allow the state to be accessed globally.
+	 *
+	 * @returns {object}
+	 */
 	setupStates()
 	{
 		this.stateTargetId = 'header';

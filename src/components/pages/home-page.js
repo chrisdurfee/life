@@ -7,7 +7,8 @@ import { Page } from './page.js';
  *
  * This will create the home page.
  *
- * @class
+ * @param {object} props
+ * @returns {object}
  */
 export const HomePage = (props) => (
 	new Page([
