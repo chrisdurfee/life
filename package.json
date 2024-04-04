@@ -1,7 +1,7 @@
 {
-	"name": "@base-framework/base-update",
+	"name": "@base-framework/life",
 	"version": "0.1.0",
-	"description": "This is an example app that uses the base framework.",
+	"description": "This is an example website that uses the base framework.",
 	"main": "/dist/main.js",
 	"scripts": {
 		"dev": "vite",
@@ -19,10 +19,10 @@
 	"license": "ISC",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/chrisdurfee/base-update.git"
+		"url": "git+https://github.com/chrisdurfee/life.git"
 	},
 	"bugs": {
-		"url": "https://github.com/chrisdurfee/base-update/issues"
+		"url": "https://github.com/chrisdurfee/life/issues"
 	},
 	"devDependencies": {
 		"esbuild": "^0.15.7"
@@ -37,5 +37,5 @@
 		"pacakge.json",
 		"readme.md"
 	],
-	"homepage": "https://github.com/chrisdurfee/base-update#readme"
+	"homepage": "https://github.com/chrisdurfee/life#readme"
 }

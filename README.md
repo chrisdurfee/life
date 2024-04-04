@@ -1,4 +1,4 @@
-# Base Example App
+# Base Example Website
 
 ## Framework Overview
 
