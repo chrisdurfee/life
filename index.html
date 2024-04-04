@@ -1,49 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-        <meta charset="utf-8"> 
-        <!-- view to lock mobile from zooming --> 
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"> 
-        <meta name="description" content=""> 
-        <meta name="keywords" content=""> 
-        <title>script example</title> 
+        <meta charset="utf-8">
+        <!-- view to lock mobile from zooming -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <title>script example</title>
 		<link rel="stylesheet" type="text/css" href="css/loading.css">
 	    <link rel="stylesheet" type="text/css" href="css/animation.css">
 	   	<link rel="stylesheet" type="text/css" href="css/app.css">
         <base href="./">
     </head>
-    <body id="body"> 
-		<div id="progress-label" class="progress-label">0%</div>
-		<div id="progress" class="progress">
-			<div class="wipe"></div>
-			<div class="wipe"></div>
-			<div class="wipe"></div>
-		</div>
-		<script src="scripts/layout/script-loader.js"></script>
-		<script src="scripts/layout/imports.js"></script>
-        <script> 
-			"use strict"; 
-			
-			/* this will store the app object that will be used 
-			to controll the app and user interface */ 
-			var app, 
-			loader = scriptLoader;
-			
-			var progress = document.getElementById('progress'), 
-			progressLabel = document.getElementById('progress-label');
-			loader.progress.callBack = loader.showProgress(progress, progressLabel, function()
-			{
-				window.setTimeout(function()
-				{ 
-					progress.classList.add('complete');
+    <body id="body">
 
-					/* this will setup the main app controller 
-					after the scripts are done */ 
-					app = new AppController();
-					app.setup();
-				}, 800);
-			}); 
- 
+		<script type="module">
+			import { AppController } from './src/app-controller.js';
+
+			/**
+			 * This will start the app.
+			 *
+			 * @global
+			 * @type {object} app
+			 */
+			const app = new AppController();
+
 		</script>
     </body>
 </html>
