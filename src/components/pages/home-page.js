@@ -23,7 +23,7 @@ export const HomePage = (props) => (
 					innerHTML: 'Now Playing<br><span>In Theatres</span>',
 					class: 'headline'
 				}),
-				Button('Watch Trailer')
+				Button({ class: 'bttn' }, 'Watch Trailer')
 			])
 		])
 	])

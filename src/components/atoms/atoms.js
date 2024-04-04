@@ -18,6 +18,7 @@ export const MainSection = Atom((props, children) =>
 {
 	return {
 		tag: 'section',
+		...props,
 		class: 'main-panel ' + (props.class || ''),
 		children
 	};

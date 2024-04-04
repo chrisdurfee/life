@@ -211,8 +211,6 @@ export class AutoScroller extends Html
 		this.scrollMode = mode;
 	}
 
-	/* this will get all panels inside the container
-	that has the scene class name */
 	getContainerScenePanels()
 	{
 		let scenePanels = [],
@@ -268,27 +266,23 @@ export class AutoScroller extends Html
 
 	setupBreadCrumbContainer()
 	{
-		let numberContainer = Html.create('div', {
-			id: this.id + '_crumb_container',
+		this.crumbContainer = Html.create('div', {
 			className: 'crumb-container'
 		}, this.container);
 	}
 
 	createCrumb(tmpOption)
 	{
-		let crumbContainer = this.id + '_crumb_container';
+		const crumbContainer = this.crumbContainer;
 		let optionClass = this.getCrumbClass(tmpOption);
 
-		let self = this;
-		let option = Html.create('div', {
-			id: tmpOption.crumbId,
+		const option = Html.create('div', {
 			className: optionClass,
-			click(){self.selectOption(tmpOption);}
+			click: () => this.selectOption(tmpOption)
 		}, crumbContainer);
 
-		option = document.getElementById(option);
-
-		Dom.data(option, 'data-id', tmpOption.label);
+		Dom.data(option, 'dataId', tmpOption.label);
+		return option;
 	}
 
 	getCrumbClass(tmpOption)
@@ -303,78 +297,22 @@ export class AutoScroller extends Html
 		for(let i = 0; i < length; i++)
 		{
 			let option = options[i];
-			if(typeof option.crumbId !== 'undefined')
+			if(option.crumb)
 			{
 				/* we want to get the crumb class name */
 				let crumbClass = this.getCrumbClass(option);
-				document.getElementById(option.crumbId).className = crumbClass;
+				option.crumb.className = crumbClass;
 			}
 		}
 	}
 
-	setupConversionTracking(conversionID, conversionLabels)
-	{
-		if(typeof conversionLabels !== 'undefined')
-		{
-			let length = conversionLabels.length;
-			for(let i = 0; i < length; i++)
-			{
-				let tmpLabel = conversionLabels[i];
-				tmpLabel.id = conversionID;
-				tmpLabel.viewed = 'no';
-
-				this.addConversionLabel(tmpLabel);
-			}
-		}
-	}
-
-	addConversionLabel(tmpLabel)
-	{
-		this.conversionLabels.push(tmpLabel);
-	}
-
-	checkConversionNumber(number)
-	{
-		let conversions = this.conversionLabels,
-		length = conversions.length;
-		if(length >= 1)
-		{
-			let conversion = null;
-			for(let i = 0; i < length; i++)
-			{
-				let tmpLabel = conversions[i];
-				if(tmpLabel.number == number)
-				{
-					conversion = tmpLabel;
-					break;
-				}
-			}
-
-			if(conversion)
-			{
-				if(conversion.viewed === 'no')
-				{
-					conversion.viewed = 'yes';
-					this.trackConversion(conversion.id, conversion.label);
-				}
-			}
-		}
-	}
-
-	trackConversion(google_conversion_id, google_conversion_label)
-	{
-		let image = new Image(1,1);
-        image.src = "//www.googleadservices.com/pagead/conversion/" + google_conversion_id + "/?label=" + google_conversion_label + "";
-	}
-
-	/* this will add abutton to show users to scroll */
 	setupScrollPointer()
 	{
 		let button = Html.create('div', {
-			id: this.id + '_scroll_pointer',
 			className: 'scroll_pointer_button',
 			click: this.selectNextOption.bind(this)
 		}, this.container);
+		this.scrollPointer = button;
 
 		let pointer = Html.create('div', {
 			className: 'scroll_pointer'
@@ -436,7 +374,7 @@ export class AutoScroller extends Html
 		for(let i = 0; i < length; i++)
 		{
 			let panelId = options[i].panelId;
-			panel = document.getElementById(panelId);
+			panel = options[i].ele;
 
 			/* we need to check if the panel is the selected panel */
 			if(tmpOption.panelId === panelId)
@@ -487,7 +425,7 @@ export class AutoScroller extends Html
 	{
 		this.showAllPanels();
 
-		let panel = document.getElementById(tmpOption.panelId);
+		let panel = tmpOption.ele;
 		let position = Dom.getPosition(panel);
 
 		window.scrollTo(0, position.y);
@@ -538,7 +476,7 @@ export class AutoScroller extends Html
 		{
 			let tmpOption = options[i],
 			panelId = tmpOption.panelId,
-			panel = document.getElementById(panelId);
+			panel = tmpOption.ele;
 
 			let position = Dom.getPosition(panel),
 			size = Dom.getSize(panel),
@@ -565,7 +503,7 @@ export class AutoScroller extends Html
 		for(let i = 0; i < length; i++)
 		{
 			let panelId = options[i].panelId,
-			panel = document.getElementById(panelId);
+			panel = options[i].ele;
 
 			panel.style.position = 'relative';
 			panel.style.zIndex = '5';
@@ -611,14 +549,15 @@ export class AutoScroller extends Html
 		let option = {
 			optionNumber: number,
 			nameId: this.id + '_option_number_' + number,
-			crumbId: this.id + '_crumb_number_' + number,
 			panelId: panel.id,
+			ele: panel,
 			label: panel.getAttribute('data-id'),
 			selected: 'no'
 		};
 
 		this.optionsArray.push(option);
-		this.createCrumb(option);
+		const crumb = this.createCrumb(option);
+		option.crumb = crumb;
 	}
 
 	/* this will get the selected option */
@@ -683,18 +622,14 @@ export class AutoScroller extends Html
 		}
 	}
 
-	/* this will select the option and unselect the
-	last selected option.
-	@param (object) tmpOPtion = the option to select */
 	selectOption(tmpOption, scrollUpdate)
 	{
-		let object = document.getElementById(tmpOption.panelId);
+		let object = tmpOption.ele;
 		tmpOption.selected = 'yes';
 
 		/* we want to check to change header class */
 		this.updateHeaderClass(tmpOption.optionNumber);
 		this.checkToAddScrollPointer(tmpOption.optionNumber);
-		this.checkConversionNumber(tmpOption.optionNumber);
 
 		Dom.addClass(object, 'active');
 		this.unselectOption(tmpOption);
@@ -742,7 +677,7 @@ export class AutoScroller extends Html
 	/* this will add the pointer on the first screen only */
 	checkToAddScrollPointer(numberSelected)
 	{
-		let pointer = document.getElementById(this.id + '_scroll_pointer');
+		let pointer = this.scrollPointer;
 		pointer.style.display = (numberSelected == '0')? 'block' : 'none';
 	}
 
@@ -822,7 +757,7 @@ export class AutoScroller extends Html
 				{
 					option.selected = 'no';
 
-					let object = document.getElementById(option.panelId);
+					let object = option.ele;
 					Dom.removeClass(object, 'active');
 				}
 			}

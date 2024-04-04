@@ -58,8 +58,6 @@ export class CastPage extends ScrollPage
 {
 	render()
 	{
-		return MainSection({ class: 'cast-panel' }, [
-			Div({ map: [ Cast, Actor] })
-		]);
+		return MainSection({ class: 'cast-panel', map: [ Cast, Actor] });
 	}
 }

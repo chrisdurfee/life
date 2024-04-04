@@ -13,7 +13,7 @@ export class ScrollPage extends Page
 {
 	setupAutoScroller()
 	{
-		const autoScroller = this.autoScroller = new AutoScroller('', this.panel.parentNode);
+		const autoScroller = this.autoScroller = new AutoScroller('', this.panel);
 		autoScroller.setup();
 	}
 
