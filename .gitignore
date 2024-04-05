@@ -7,7 +7,6 @@ _notes/
 .idea/
 .vscode/
 node_modules/
-dist/
 *.code-workspace
 Dockerfile
 docker-compose.yml
