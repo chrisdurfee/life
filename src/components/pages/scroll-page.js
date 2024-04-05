@@ -23,6 +23,17 @@ export class ScrollPage extends Page
 	}
 
 	/**
+	 * This will render the page.
+	 *
+	 * @returns {object}
+	 */
+	render()
+	{
+		const child = this.children[0];
+		return child;
+	}
+
+	/**
 	 * This will be called after the setup.
 	 *
 	 * @returns {void}
