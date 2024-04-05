@@ -10,6 +10,11 @@ import { Component } from '@base-framework/base';
  */
 export class Page extends Component
 {
+	/**
+	 * This will render the page.
+	 *
+	 * @returns {object}
+	 */
 	render()
 	{
 		return Main(this.class, this.children);

@@ -61,12 +61,10 @@ const GalleryImages = [
  *
  * This will create the gallery panel.
  *
- * @class
+ * @returns {object}
  */
-export class GalleryPage extends ScrollPage
-{
-	render()
-	{
-		return MainSection({ class: 'gallery-panel', map: [ GalleryImages, GalleryImage] });
-	}
-}
+export const GalleryPage = () => (
+	new ScrollPage([
+		MainSection({ class: 'gallery-panel', map: [ GalleryImages, GalleryImage] })
+	])
+);

@@ -2,6 +2,12 @@ import { A, Br, Button, H1, H2, Header, P, Span } from '@base-framework/atoms';
 import { Atom } from '@base-framework/base';
 export { A, Br, Button, H1, H2, Header, P, Span };
 
+/**
+ * This will create a video element.
+ *
+ * @param {object} props
+ * @returns {object}
+ */
 export const Video = Atom((props) =>
 {
 	return {
@@ -14,6 +20,12 @@ export const Video = Atom((props) =>
 	};
 });
 
+/**
+ * This will create a main section element.
+ *
+ * @param {object} props
+ * @param {array} children
+ */
 export const MainSection = Atom((props, children) =>
 {
 	return {

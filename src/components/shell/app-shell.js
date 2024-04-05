@@ -1,5 +1,5 @@
 import { Div } from '@base-framework/atoms';
-import { Atom, Component } from '@base-framework/base';
+import { Atom } from '@base-framework/base';
 import { HeaderPanel } from './header-panel.js';
 import { Routes } from './routes.js';
 
@@ -40,27 +40,17 @@ const ActivePanelContainer = Atom((props, children) =>
  *
  * This will create the app shell.
  *
- * @class
- * @extends Component
+ * @returns {object}
  */
-export class AppShell extends Component
-{
-	/**
-	 * This will render the app shell.
-	 *
-	 * @returns {object}
-	 */
-	render()
-	{
-		return AppContainer([
-			Div({ class: 'header-container' }, [
-				new HeaderPanel({ cache: 'header' })
-			]),
-			ActivePanelContainer({
-				cache: 'mainBody',
-				class: 'main-body-container',
-				switch: Routes()
-			})
-		]);
-	}
-}
+export const AppShell = () => (
+	AppContainer([
+		Div({ class: 'header-container' }, [
+			new HeaderPanel({ cache: 'header' })
+		]),
+		ActivePanelContainer({
+			cache: 'mainBody',
+			class: 'main-body-container',
+			switch: Routes()
+		})
+	])
+);

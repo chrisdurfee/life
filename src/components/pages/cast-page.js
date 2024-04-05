@@ -51,13 +51,10 @@ const Cast = [
  *
  * This will create the cast panel.
  *
- * @class
- * @extends ScrollPage
+ * @returns {object}
  */
-export class CastPage extends ScrollPage
-{
-	render()
-	{
-		return MainSection({ class: 'cast-panel', map: [ Cast, Actor] });
-	}
-}
+export const CastPage = () => (
+	new ScrollPage([
+		MainSection({ class: 'cast-panel', map: [ Cast, Actor] })
+	])
+);

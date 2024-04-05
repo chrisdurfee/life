@@ -64,7 +64,7 @@ export class AppController
 	 */
 	setupAppShell()
 	{
-		const main = this.appShell = new AppShell();
+		const main = AppShell();
 		Builder.render(main, document.body);
 	}
 }
