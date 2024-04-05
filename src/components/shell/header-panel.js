@@ -1,5 +1,5 @@
 import { A, Div, Header, Img } from "@base-framework/atoms";
-import { Component } from "@base-framework/base";
+import { Jot } from "@base-framework/base";
 import { Navigation } from "../organisms/navigation.js";
 import { Links } from './links.js';
 
@@ -21,7 +21,7 @@ const Logo = () => A({ class: 'logo', href: '/'}, [
  *
  * @class
  */
-export class HeaderPanel extends Component
+export const HeaderPanel = Jot(
 {
 	render()
 	{
@@ -36,7 +36,7 @@ export class HeaderPanel extends Component
 				})
 			])
 		]);
-	}
+	},
 
 	/**
 	 * This will setup the states. We are setting a target id
@@ -44,7 +44,7 @@ export class HeaderPanel extends Component
 	 *
 	 * @returns {object}
 	 */
-	setupStates()
+	state()
 	{
 		this.stateTargetId = 'header';
 
@@ -52,4 +52,4 @@ export class HeaderPanel extends Component
 			dark: false
 		};
 	}
-}
+});
