@@ -27,7 +27,7 @@ const Route = (uri, component, title) =>
  */
 export const Routes = () => [
 	Route('/', HomePage(), 'EXPLORE'),
-	Route('/synopsis/:id?', new SynopsisPage(), 'SYNOPSIS'),
+	Route('/synopsis/:id?', SynopsisPage(), 'SYNOPSIS'),
 	Route('/cast/:id?', new CastPage(), 'CAST'),
 	Route('/gallery/:id?', new GalleryPage(), 'GALLERY'),
 ];
