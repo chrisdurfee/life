@@ -44,7 +44,7 @@ const Cast = [
 		text: 'Dr. David Jordan, American, senior medical officer',
 		class: 'third'
 	}
-]
+];
 
 /**
  * CastPage
