@@ -20,7 +20,7 @@ export const HomePage = () => (
 			]),
 			Article({ class: 'headline-panel' }, [
 				H1({
-					html: 'Now Playing<br><span>In Theatres</span>',
+					innerHTML: 'Now Playing<br><span>In Theatres</span>',
 					class: 'headline'
 				}),
 				Button({ class: 'bttn' }, 'Watch Trailer')
