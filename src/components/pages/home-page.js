@@ -7,10 +7,9 @@ import { Page } from './page.js';
  *
  * This will create the home page.
  *
- * @param {object} props
  * @returns {object}
  */
-export const HomePage = (props) => (
+export const HomePage = () => (
 	new Page([
 		MainSection({ class: 'home-panel' }, [
 			Div({ class: 'video-container' }, [
