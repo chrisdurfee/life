@@ -15,7 +15,7 @@ export const HomePage = () => (
 			Div({ class: 'video-container' }, [
 				Video({
 					class: 'video',
-					src: 'videos/life-trailer-2.mp4#t=0.26,214"></source>'
+					src: '/life/videos/life-trailer-2.mp4#t=0.26,214"></source>'
 				})
 			]),
 			Article({ class: 'headline-panel' }, [

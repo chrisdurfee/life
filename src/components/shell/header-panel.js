@@ -10,7 +10,7 @@ import { Links } from './links.js';
  */
 const Logo = () => A({ class: 'logo', href: '/'}, [
 	Img({
-		src: 'images/life-logo.svg'
+		src: '/life/images/life-logo.svg'
 	})
 ]);
 
