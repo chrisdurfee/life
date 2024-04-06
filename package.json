@@ -7,7 +7,9 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
-		"type-check": "tsc --noEmit"
+		"type-check": "tsc --noEmit",
+		"predeploy" : "npm run build",
+    	"deploy" : "gh-pages -d dist"
 	},
 	"keywords": [
 		"JavaScript",
@@ -25,7 +27,8 @@
 		"url": "https://github.com/chrisdurfee/life/issues"
 	},
 	"devDependencies": {
-		"esbuild": "^0.15.7"
+		"esbuild": "^0.15.7",
+		"gh-pages": "^6.1.1"
 	},
 	"dependencies": {
 		"@base-framework/atoms": "^1.0.1",
@@ -37,5 +40,5 @@
 		"pacakge.json",
 		"readme.md"
 	],
-	"homepage": "https://github.com/chrisdurfee/life#readme"
+	"homepage": "https://github.com/chrisdurfee/life/"
 }
