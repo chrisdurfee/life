@@ -6,10 +6,5 @@ export default defineConfig({
 	base: '/life/',
 	server: {
 		open: true
-	},
-	resolve: {
-		alias: {
-			'@': '/src', // Shortcut to access the src directory
-		}
 	}
 });
