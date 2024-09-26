@@ -10,6 +10,14 @@ Here is the link to the example website: [Website](https://chrisdurfee.github.io
 
 This website uses components and atoms to create layouts. Components are reusable layouts that contain the presentation and functionality. They are reusable and extensible, helping to reduce redundant code through abstract types.
 
+## Technologies
+
+- JavaScript
+- HTML
+- CSS
+- Base Framework
+- Vite
+
 ## Getting Started
 
 To begin using the Base Framework, follow these steps:
