@@ -4,6 +4,8 @@
 
 This is an example website for the Base Framework. It is a simple, single page application that demonstrates the framework's capabilities. The website is a good starting point for creating your own website.
 
+Here is the link to the example website: [Website](https://chrisdurfee.github.io/life/)
+
 ## Layouts
 
 This website uses components and atoms to create layouts. Components are reusable layouts that contain the presentation and functionality. They are reusable and extensible, helping to reduce redundant code through abstract types.
