@@ -23,7 +23,7 @@ const Route = (uri, component, title) =>
 /**
  * This will get the routes.
  *
- * @return {array}
+ * @return {Array<object>}
  */
 export const Routes = () => [
 	Route('/', HomePage(), 'EXPLORE'),

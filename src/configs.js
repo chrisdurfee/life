@@ -8,8 +8,13 @@
  */
 export const Configs =
 {
-	appName: 'Life',
+	APP_NAME: 'Life',
 
+	/**
+	 * This will set the base URL for the app.
+	 *
+	 * @type {object} router
+	 */
 	router:
 	{
 		baseUrl: '/life/',

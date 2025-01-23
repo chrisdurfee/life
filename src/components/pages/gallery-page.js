@@ -14,7 +14,7 @@ const GalleryImage = (props) => ({
 });
 
 /**
- * @type {array} GalleryImages
+ * @type {Array<object>} GalleryImages
  */
 const GalleryImages = [
 	{

@@ -5,8 +5,7 @@ import { Model } from '@base-framework/base';
  *
  * This will create the main model.
  *
- * @class
- * @extends Model
+ * @type {typeof Model} UserData
  */
 export const MainModel = Model.extend(
 {

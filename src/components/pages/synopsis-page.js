@@ -8,7 +8,8 @@ import { Page } from "./page.js";
  *
  * @returns {void}
  */
-const beforeSetup = () => {
+const beforeSetup = () =>
+{
 	State.set('header', 'dark', true);
 };
 
@@ -17,7 +18,8 @@ const beforeSetup = () => {
  *
  * @returns {void}
  */
-const beforeDestroy = () => {
+const beforeDestroy = () =>
+{
 	State.set('header', 'dark', false);
 };
 

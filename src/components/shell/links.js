@@ -2,7 +2,7 @@
 /**
  * This will get the nav links.
  *
- * @return {array}
+ * @return {Array<object>}
  */
 export const Links = () => [
 	{

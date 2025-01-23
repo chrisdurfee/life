@@ -17,6 +17,7 @@ export class Page extends Component
 	 */
 	render()
 	{
+		// @ts-ignore
 		return Main(this.class, this.children);
 	}
 

@@ -46,6 +46,7 @@ export const HeaderPanel = Jot(
 	 */
 	state()
 	{
+		// @ts-ignore
 		this.stateTargetId = 'header';
 
 		return {

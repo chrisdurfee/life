@@ -5,8 +5,7 @@ import { MainModel } from './main-model.js';
  *
  * This will create the cast model.
  *
- * @class
- * @extends MainModel
+ * @type {typeof MainModel} UserData
  */
 export const CastModel = MainModel.extend(
 {
