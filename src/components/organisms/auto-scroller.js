@@ -1,4 +1,4 @@
-import { Arrays, base, Dom, Html } from '@base-framework/base';
+import { Arrays, Dom, Events, Html } from '@base-framework/base';
 import { animate } from './animate.js';
 
 export class AutoScroller extends Html
@@ -34,6 +34,7 @@ export class AutoScroller extends Html
 	init()
 	{
 		let constructor = this.constructor;
+		// @ts-ignore
 		this.number = (typeof constructor.number === 'undefined')? constructor.number = 0 : (++constructor.number);
 
 		this.id = 'auto-scroller-' + this.number;
@@ -49,7 +50,7 @@ export class AutoScroller extends Html
 
 	addMouseWheelSupport()
 	{
-		base.onMouseWheel(this.mouseBind, document);
+		Events.onMouseWheel(this.mouseBind, document);
 	}
 
 	mouseWheel(delta)
@@ -70,12 +71,12 @@ export class AutoScroller extends Html
 
 	removeMouseWheel()
 	{
-		base.off('mousewheel', document, this.mouseBind);
+		Events.off('mousewheel', document, this.mouseBind);
 	}
 
 	addKeyboardSupport()
 	{
-		base.on('keydown', document, this.keyBind);
+		Events.on('keydown', document, this.keyBind);
 	}
 
 	keyPress(e)
@@ -105,7 +106,7 @@ export class AutoScroller extends Html
 
 	removeKeyPress()
 	{
-		base.off('keydown', document, this.keyBind);
+		Events.off('keydown', document, this.keyBind);
 	}
 
 	remove()
@@ -120,17 +121,18 @@ export class AutoScroller extends Html
 
 	addResizeEvent()
 	{
-		base.on('resize', window, this.resizeBind);
+		Events.on('resize', window, this.resizeBind);
 	}
 
 	removeResizeEvent()
 	{
-		base.off('resize', window, this.resizeBind);
+		Events.off('resize', window, this.resizeBind);
 	}
 
 	getScrollMode()
 	{
 		let size = Dom.getWindowSize();
+		// @ts-ignore
 		if(size.width <= this.mobileSize)
 		{
 			/* we need to check if the system needs to
@@ -161,6 +163,7 @@ export class AutoScroller extends Html
 
 		/* we want to change the settings if the window size is
 		less or equal to mobile size */
+		// @ts-ignore
 		if(size.width <= this.mobileSize)
 		{
 			this.showAllPanels();
@@ -171,7 +174,9 @@ export class AutoScroller extends Html
 			{
 				/* update scroll mode to mobile */
 				this.setScrollMode('mobile');
-				let result = this.touch.remove();
+
+				// @ts-ignore
+				this.touch.remove();
 
 				/* we want to reselect the last selected option */
 				if(last)
@@ -192,7 +197,8 @@ export class AutoScroller extends Html
 			{
 				/* update scroll mode to desktop */
 				this.setScrollMode('desktop');
-				let result = this.touch.add();
+				// @ts-ignore
+				this.touch.add();
 
 				if(last)
 				{
@@ -426,8 +432,9 @@ export class AutoScroller extends Html
 		this.showAllPanels();
 
 		let panel = tmpOption.ele;
-		let position = Dom.getPosition(panel);
+		let position = Dom.position(panel);
 
+		// @ts-ignore
 		window.scrollTo(0, position.y);
 
 		this.updateCrumbStyles();
@@ -436,12 +443,12 @@ export class AutoScroller extends Html
 	/* this will track scrolling */
 	addScroll()
 	{
-		base.on('scroll', window, this.scrollBind);
+		Events.on('scroll', window, this.scrollBind);
 	}
 
 	removeScroll()
 	{
-		base.off('scroll', window, this.scrollBind);
+		Events.off('scroll', window, this.scrollBind);
 	}
 
 	/* this will check to change the header class as
@@ -478,13 +485,16 @@ export class AutoScroller extends Html
 			panelId = tmpOption.panelId,
 			panel = tmpOption.ele;
 
-			let position = Dom.getPosition(panel),
+			let position = Dom.position(panel),
 			size = Dom.getSize(panel),
+
+			// @ts-ignore
 			bottom = position.y + size.height;
 
-			if(scrollTop >= position.y && scrollTop < bottom)
+			// @ts-ignore
+			if (scrollTop >= position.y && scrollTop < bottom)
 			{
-				if(tmpOption.selected !== 'yes')
+				if (tmpOption.selected !== 'yes')
 				{
 					this.selectOption(tmpOption, true);
 				}
@@ -678,6 +688,7 @@ export class AutoScroller extends Html
 	checkToAddScrollPointer(numberSelected)
 	{
 		let pointer = this.scrollPointer;
+		// @ts-ignore
 		pointer.style.display = (numberSelected == '0')? 'block' : 'none';
 	}
 

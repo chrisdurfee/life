@@ -146,7 +146,7 @@ html, body {
 	font-family: 'prota_basicregular';
 }
 .main-panel.home-panel{
-	background: url(../images/home/load.jpg) no-repeat center;
+	background: url(/images/home/load.jpg) no-repeat center;
 	background-attachment: fixed;
 	background-size: cover;
 	opacity: 1;
@@ -245,7 +245,7 @@ html, body {
 	width: 42%;
 }
 .main-panel.synopsis-panel .col-image{
-	background: url(../images/synopsis/try6.jpg) no-repeat center;
+	background: url(/images/synopsis/try6.jpg) no-repeat center;
 	background-size: 141%;
 	-webkit-transition: all 2s ease-out;
 	transition: all 2s ease-out;
@@ -335,13 +335,13 @@ html, body {
 	z-index: 1;
 }
 .main-panel.cast-panel .cast-container.first{
-	background-image: url(../images/cast/ryan.jpg);
+	background-image: url(/images/cast/ryan.jpg);
 }
 .main-panel.cast-panel .cast-container.second{
-	background-image: url(../images/cast/becca.jpg);
+	background-image: url(/images/cast/becca.jpg);
 }
 .main-panel.cast-panel .cast-container.third{
-	background-image: url(../images/cast/jake.jpg);
+	background-image: url(/images/cast/jake.jpg);
 }
 .crumb-container{
  	position:fixed;
@@ -483,29 +483,29 @@ html, body {
 	z-index: 1;
 }
 .main-panel.gallery-panel .cast-container.first{
-	background-image: url(../images/gallery/1.jpg);
+	background-image: url(/images/gallery/1.jpg);
 }
 .main-panel.gallery-panel .cast-container.second{
-	background-image: url(../images/gallery/2.jpg);
+	background-image: url(/images/gallery/2.jpg);
 }
 .main-panel.gallery-panel .cast-container.third{
-	background-image: url(../images/gallery/3.jpg);
+	background-image: url(/images/gallery/3.jpg);
 }
 .main-panel.gallery-panel .cast-container.fourth{
-	background-image: url(../images/gallery/4.jpg);
+	background-image: url(/images/gallery/4.jpg);
 }
 .main-panel.gallery-panel .cast-container.fifth{
-	background-image: url(../images/gallery/5.jpg);
+	background-image: url(/images/gallery/5.jpg);
 }
 .main-panel.gallery-panel .cast-container.sixth{
-	background-image: url(../images/gallery/6.jpg);
+	background-image: url(/images/gallery/6.jpg);
 }
 .main-panel.gallery-panel .cast-container.seventh{
-	background-image: url(../images/gallery/7.jpg);
+	background-image: url(/images/gallery/7.jpg);
 }
 .main-panel.gallery-panel .cast-container.eighth{
-	background-image: url(../images/gallery/8.jpg);
+	background-image: url(/images/gallery/8.jpg);
 }
 .main-panel.gallery-panel .cast-container.ninth{
-	background-image: url(../images/gallery/9.jpg);
+	background-image: url(/images/gallery/9.jpg);
 }

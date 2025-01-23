@@ -25,6 +25,7 @@ export const Video = Atom((props) =>
  *
  * @param {object} props
  * @param {array} children
+ * @return {object}
  */
 export const MainSection = Atom((props, children) =>
 {

@@ -6,6 +6,7 @@ import { Dom } from '@base-framework/base';
  * @param {object} obj
  * @param {string} animationClass
  * @param {function} callBack
+ * @return {void}
  */
 const removeClassAndHide = (obj, animationClass, callBack) =>
 {
@@ -19,6 +20,7 @@ const removeClassAndHide = (obj, animationClass, callBack) =>
  * @param {object} obj
  * @param {string} animationClass
  * @param {function} callBack
+ * @return {void}
  */
 const removeAnimationClass = (obj, animationClass, callBack) =>
 {
@@ -31,20 +33,33 @@ const removeAnimationClass = (obj, animationClass, callBack) =>
 	animate.animating.remove(obj, animationClass);
 };
 
+/**
+ * This will get an element.
+ *
+ * @param {object} element
+ * @returns {object|null}
+ */
 const getElement = (element) =>
 {
 	return (typeof element === 'string')? document.getElementById(element) : element;
 };
 
-/* this will add and remove css animations */
+/**
+ * animate
+ *
+ * This will create an animation object.
+ *
+ * @type {object}
+ */
 export const animate =
 {
-	/* this class tracks all objects being animated and can
-	add and remove them when completed */
+	/**
+	 * @member {object} animating
+	 */
 	animating:
 	{
 		/**
-		 * @param array objects
+		 * @member {array} objects
 		 */
 		objects: [],
 
@@ -188,7 +203,7 @@ export const animate =
 	 * @param {object} object
 	 * @param {string} animationClass
 	 * @param {number} duration
-	 * @param {function} endCallBack
+	 * @param {function} [endCallBack]
 	 * @returns {void}
 	 */
 	hide(object, animationClass, duration, endCallBack)
@@ -205,7 +220,8 @@ export const animate =
 	 * @param {object} object
 	 * @param {string} animationClass
 	 * @param {number} duration
-	 * @param {function} endCallBack
+	 * @param {function} [endCallBack]
+	 * @return {void}
 	 */
 	show(object, animationClass, duration, endCallBack)
 	{
@@ -222,7 +238,8 @@ export const animate =
 	 * @param {object} object
 	 * @param {string} animationClass
 	 * @param {number} duration
-	 * @param {function} endCallBack
+	 * @param {function} [endCallBack]
+	 * @return {void}
 	 */
 	set(object, animationClass, duration, endCallBack)
 	{
